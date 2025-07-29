@@ -28,8 +28,8 @@ contract two is cont {
 
     constructor() {
      _owner = msg.sender;
-     _symbol = "TEST";
-     _name = "tested";
+     _symbol = "";
+     _name = "";
      _totalSupply = 1_000_000_000 * 10 ** 18;
     }   
     
