@@ -3,12 +3,12 @@ pragma solidity ^0.8.0;
 interface cont {
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event Transfer(address indexed from, address indexed to, uint256);
-    function mint(uint amount) external returns (bool);
-    function burn(uint amount) external returns (bool);
+    function mint(uint256 amount) external returns (bool);
+    function burn(uint256 amount) external returns (bool);
     function renounceOwnership() external;
-    function transfer(address recipient, uint value) external returns (bool);
-    function transferFrom(address sender, address recipient, uint value) external returns (bool);
-    function approve(address spender, uint value) external returns (bool);
+    function transfer(address recipient, uint256 value) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 value) external returns (bool);
+    function approve(address spender, uint256 value) external returns (bool);
 }
 contract two is cont {
 
