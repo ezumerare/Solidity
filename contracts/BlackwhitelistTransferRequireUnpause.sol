@@ -94,7 +94,7 @@ contract BlackwhitelistTransferRequireUnPause is IMoon {
         return blacklisted[account];
     }
 
-    // add account to blacllist
+    // add account to blacklist
     function _addToBlacklist(address account) public onlyOwner {
         blacklisted[account] = true;
         emit AddedToBlacklist(account);
