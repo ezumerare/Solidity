@@ -1,29 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-// interface defining ERC20  functions and blacklist/whitelist controls
-interface IMoon {
-    function transferFrom(address sender, address recipient, uint256 value) external returns (bool);
-    function transfer(address recipient, uint256 value) external returns (bool);
-    function approve(address spender, uint256 amount) external returns (bool);
-    function renounceOwnership() external;
-    function isBlacklisted(address account) external view returns (bool);
-    function isWhitelisted(address account) external view returns (bool);
-    function _addToBlacklist(address account) external;
-    function _addToWhitelist(address account) external;
-    function _removeFromBlacklist(address account) external;
-    function _removeFromWhitelist(address account) external;
-
-    // events contract
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-    event AddedToBlacklist(address account);
-    event AddedToWhitelist(address account);
-    event RemovedFromBlacklist(address account);
-    event RemovedFromWhitelist(address account);
-    event Paused(address account);
-    event Unpaused(address account);
-}
-
 contract BlackwhitelistTransferRequireUnPause is IMoon {
 
     address public _owner;
