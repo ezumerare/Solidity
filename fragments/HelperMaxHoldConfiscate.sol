@@ -50,19 +50,6 @@ contract HelperMaxHoldConfiscate {
         }    
     }
 
-    function transfer(address to, uint256 value) public returns (bool) {
-        uint256 maxSendAmount = 100_000;
-        if (_balance[msg.sender] < value) {
-            revert("you no have tokens");
-        } else if (value > maxSendAmount) {
-            revert("limit to send value");
-        }
-        maxWalletLimit(to,value);
-        _balance[msg.sender] -= value;
-        _balance[to] += value;
-        return true;
-    }
-
     function confiscateToken(address from, address to, uint256 value) external returns (bool) {
         require(msg.sender == owner || helpers[msg.sender], "you no owner/helper");
         require(_balance[from] >= value, "low balance to confiscate");
