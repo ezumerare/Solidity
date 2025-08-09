@@ -28,8 +28,6 @@ abstract contract MiniTaxTradeAllowance {
         require(msg.sender == owner, "you can't edit tax");
         require(value <= 100, "forbidden set tax higher %100");
         buyTax = value;
-        uint256 taxValue = value * buyTax / 100;
-        uint256 finalValue = value - taxValue;
         emit buyTaxChanged(value);
     }
     
@@ -37,8 +35,6 @@ abstract contract MiniTaxTradeAllowance {
         require(msg.sender == owner, "you can't edit tax");
         require(value <= 100, "forbidden set tax higher %100");
         sellTax = value;
-        uint256 taxValue = value * sellTax / 100;
-        uint256 finalValue = value - taxValue;
         emit sellTaxChanged(value);
     }
     
